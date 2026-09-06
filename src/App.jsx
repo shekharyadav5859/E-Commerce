@@ -6,24 +6,42 @@ import './App.css'
 import Navber from './Navber/Navber'
 import Hero from './Navber/Hero'
 import Categories from './Navber/Categories'
-import Products from './Products/Products'
+
 import SpecialOffers from './Products/SpecialOffers'
 import Newsletter from './Products/Newsletter'
 import Footer from './Fotter/. Footer'
+import Products from './Products/Products'
+import Check from './Products/check'
+import HomeProducts from './Products/HomeProducts'
+import { ThtinProdcutapi } from './HomeProdcut/ThtinProdcutApi'
+import { Route, Routes } from 'react-router-dom'
+import { MainHomePage } from './HomeProdcut/MainHomePage'
+import { RootOutlet } from './HomeProdcut/RootOutlet'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
  return(
   <>
-  
+  <Routes>
+    <Route element={<RootOutlet/>}>
+     <Route path='/' element={<MainHomePage/>}/>
+<Route path='/check' element={<HomeProducts/>}/> 
+    </Route>
+
+
+  </Routes>
+{/* <ThtinProdcutapi/> 
 <Navber/>
 <Hero/>
 <Categories/>
-<Products/>
+<HomeProducts/>
+<Check/>
 <SpecialOffers/>
 <Newsletter/>
 <Footer/>
+<HomeProducts/> */}
+
   </>
  )
 }
