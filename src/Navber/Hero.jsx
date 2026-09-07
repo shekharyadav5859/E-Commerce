@@ -1,6 +1,7 @@
 function Hero() {
   return (
-    <section className="w-full bg-gradient-to-r from-blue-600 to-purple-600">
+    <>
+<section className="w-[95%] mx-auto mt-28 bg-gradient-to-r from-blue-600 to-purple-600  ">
       <div className="max-w-7xl mx-auto px-6 py-20 flex items-center justify-between">
 
         {/* Left Content */}
@@ -32,6 +33,8 @@ function Hero() {
 
       </div>
     </section>
+    
+    </>
   );
 }
 

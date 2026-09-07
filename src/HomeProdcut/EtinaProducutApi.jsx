@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-function HomeProducts() {
+export function EtinaProducutApi() {
   const [products, setProducts] = useState([]);
   const [visibleCount, setVisibleCount] = useState(4);
 
@@ -160,4 +160,3 @@ function HomeProducts() {
   );
 }
 
-export default HomeProducts;

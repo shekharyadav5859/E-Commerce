@@ -1,15 +1,22 @@
 import React from "react";
 import { ThtinProdcutapi } from "./ThtinProdcutApi";
-import HomeProducts from "../Products/HomeProducts";
-import { HomeCaterogy } from "../Caterogy/HomeCaterogy";
+
+
+import Hero from "../Navber/Hero";
+
+import { EtinaProducutApi } from "./EtinaProducutApi";
+import Categories from "../Caterogy/Categories";
 
 export function MainHomePage() {
 
   return (
     <>
-      <HomeCaterogy/>
-      <ThtinProdcutapi />
-      <HomeProducts />
+     <Hero/>
+     <Categories/>
+  
+     <ThtinProdcutapi />
+    <EtinaProducutApi/>
+
     </>
   );
 }
