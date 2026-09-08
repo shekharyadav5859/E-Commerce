@@ -1,11 +1,30 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function Navber(){
   const [categoryOpen, setCategoryOpen] = useState(false);
+  const[textsearch , settextsearch] = useState("");
     let[categorie , setcategorie] =useState('');
+//search
+console.log(textsearch);
+   const navigate = useNavigate();
+   const headlSearch =()=>{
+    if(!textsearch.trim()) return
+
+    navigate("/search", {
+      state: {
+        searchText: textsearch
+      }
+    });
+    console.log(textsearch)
+
+  settextsearch("");
+  };
+   
+  
+
     let api = async()=>{
     const getData = await axios.get(`https://dummyjson.com/products/category-list`);
     setcategorie(getData.data);
@@ -15,6 +34,8 @@ function Navber(){
     useEffect(()=>{
 api();
     },[])
+    
+
     return(
         <>
         <nav className="w-full bg-white shadow-md px-6 py-4  fixed  top-0 z-50  ">
@@ -54,12 +75,17 @@ api();
 
         {/* Search */}
         <div className="hidden md:flex items-center border rounded-lg px-3 py-2 w-64">
-          <span className="mr-2">🔍</span>
+        
           <input
             type="text"
             placeholder="Search products..."
             className="outline-none w-full"
+            value={textsearch}
+            onChange={(e)=>settextsearch(e.target.value)}
           />
+           <span className="mr-2"
+           onClick={headlSearch}
+           >🔍</span>
         </div>
 
         {/* Right Side */}
@@ -87,13 +113,18 @@ api();
       {/* Mobile Search */}
 <div className="md:hidden mt-4 px-4">
   <div className="flex items-center border rounded-lg px-3 py-2 bg-white">
-    <span className="mr-2">🔍</span>
+   
 
     <input
       type="text"
       placeholder="Search products..."
       className="outline-none w-full"
+       value={textsearch}
+      onChange={(e)=>settextsearch(e.target.value)}
     />
+     <span className="mr-2"
+      onClick={headlSearch}
+     >🔍</span>
   </div>
 </div>
     </nav>

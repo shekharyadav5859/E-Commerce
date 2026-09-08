@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Categories() {
   const [categories, setCategories] = useState([]);
@@ -60,6 +61,7 @@ function Categories() {
   return (
     <section className="bg-white border-y shadow-sm">
 
+
       <div className="max-w-7xl mx-auto px-4 py-5">
 
         {/* Horizontal Category List */}
@@ -94,7 +96,10 @@ function Categories() {
               >
 
                 {/* ICON BOX */}
-                <div
+               <Link
+               to={`/Categories/${category}`}
+               >
+                 <div
                   className="
                     w-20
                     h-20
@@ -115,6 +120,10 @@ function Categories() {
                 >
                   {getIcon(category)}
                 </div>
+               
+               </Link>
+
+             
 
                 {/* CATEGORY NAME */}
                 <span

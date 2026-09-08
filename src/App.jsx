@@ -7,6 +7,9 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import { MainHomePage } from './HomeProdcut/MainHomePage'
 import { RootOutlet } from './HomeProdcut/RootOutlet'
+import { OpenCategryPage } from './Caterogy/OpenCategryPage'
+import { OneCategoryPage } from './Caterogy/OneCategoryPage'
+import { Search } from './Navber/Serch'
 
 
 function App() {
@@ -17,6 +20,9 @@ function App() {
   <Routes>
     <Route element={<RootOutlet/>}>
      <Route path='/' element={<MainHomePage/>}/>
+     <Route path='/Categories/:category' element={<OpenCategryPage/>}/>
+     <Route path='/Categories/:category/:id/:Name'   element={<OneCategoryPage/>}/>
+     <Route path="/search" element={<Search/>} />
     
  
     </Route>
