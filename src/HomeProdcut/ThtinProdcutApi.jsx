@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export function ThtinProdcutapi() {
 
@@ -69,7 +70,7 @@ export function ThtinProdcutapi() {
         <main className="max-w-7xl mx-auto px-6 py-12">
 
           {/* Heading */}
-
+{/* 
           <div className="mb-8">
 
             <p className="text-indigo-600 font-semibold">
@@ -80,7 +81,7 @@ export function ThtinProdcutapi() {
               Popular Products
             </h2>
 
-          </div>
+          </div> */}
 
 
           {/* Products Card */}
@@ -97,7 +98,7 @@ export function ThtinProdcutapi() {
                 {/* Image */}
 
                 <div className="h-64 bg-gray-100 overflow-hidden relative">
-
+            
                   <img
                     src={product.thumbnail}
                     alt={product.title}
@@ -140,10 +141,19 @@ export function ThtinProdcutapi() {
                     <p className="text-xl font-bold text-gray-900">
                       ${product.price}
                     </p>
+                   
+                   <Link
+                  to={`/main/singal/product/page/80api/${product.title}/${product.id}`}
+                  state={{product:product}}                  
+                  >
+                      <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                    Add +
+                  </button>
+                  
+                  
+                  </Link>
 
-                    <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
-                      Add +
-                    </button>
+                  
 
                   </div>
 
@@ -171,7 +181,7 @@ export function ThtinProdcutapi() {
 
           {/* No More Products */}
 
-          {/* {count >= data.length && data.length > 0 && (
+          {count >= data.length && data.length > 0 && (
             <div className="text-center py-10">
 
               <p className="text-gray-500">
@@ -179,7 +189,7 @@ export function ThtinProdcutapi() {
               </p>
 
             </div>
-          )} */}
+          )}
 
         </main>
 

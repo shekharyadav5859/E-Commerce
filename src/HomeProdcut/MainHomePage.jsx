@@ -13,9 +13,9 @@ export function MainHomePage() {
     <>
      <Hero/>
      <Categories/>
-  
+  <EtinaProducutApi/>
      <ThtinProdcutapi />
-    <EtinaProducutApi/>
+    
 
     </>
   );

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
-import { EtinaProducutApi } from '../HomeProdcut/EtinaProducutApi';
+import { Link, useLocation } from 'react-router-dom';
+
 
 export function Search(){
     //https://dummyjson.com/products/search?q=phone
@@ -143,7 +143,11 @@ export function Search(){
             </p>
 
             {/* Button */}
-           <button
+            <Link
+            to={`/serch/${product.title}/${product.id}`}
+            state={{product:product}}
+            >
+                 <button
     className="
       w-[85%] sm:w-full
       bg-blue-600
@@ -158,6 +162,8 @@ export function Search(){
   >
     View Product
   </button>
+            </Link>
+         
 
           </div>
 

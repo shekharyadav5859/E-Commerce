@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export function EtinaProducutApi() {
   const [products, setProducts] = useState([]);
@@ -9,9 +10,8 @@ export function EtinaProducutApi() {
 
   const api = async () => {
     try {
-      const res = await axios.get(
-        "https://api.escuelajs.co/api/v1/products"
-      );
+      const res = await axios.get("https://api.escuelajs.co/api/v1/products?offset=0&limit=24")
+        // "https://api.escuelajs.co/api/v1/products" );
 
       setProducts(res.data);
       console.log(res.data);
@@ -56,7 +56,20 @@ export function EtinaProducutApi() {
       {/* ================= PRODUCTS ================= */}
 
       <main className="max-w-7xl mx-auto px-6 py-12">
+    
+          {/* Heading */}
 
+          <div className="mb-8">
+
+            <p className="text-indigo-600 font-semibold">
+              Our Collection
+            </p>
+
+            <h2 className="text-3xl font-bold text-gray-800">
+              Popular Products
+            </h2>
+
+          </div>
        
 
 
@@ -118,9 +131,18 @@ export function EtinaProducutApi() {
                     ${product.price}
                   </p>
 
-                  <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                  <Link
+                  to={`/main/singal/product/page/80api/${product.title}/${product.id}`}
+                  state={{product:product}}                  
+                  >
+                      <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
                     Add +
                   </button>
+                  
+                  
+                  </Link>
+
+                  
 
                 </div>
 
@@ -146,13 +168,13 @@ export function EtinaProducutApi() {
 
         {/* All products loaded */}
 
-        {visibleCount >= products.length && products.length > 0 && (
+        {/* {visibleCount >= products.length && products.length > 0 && (
           <div className="text-center py-10">
             <p className="text-gray-500">
               No more products
             </p>
           </div>
-        )}
+        )} */}
 
       </main>
 
