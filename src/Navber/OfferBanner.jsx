@@ -6,7 +6,7 @@ export const OfferBanner = () => {
 <>
 {/* ================= OFFER BANNER ================= */}
 
-<div className="w-full bg-gradient-to-r mt-[80px] from-blue-600 via-indigo-600 to-purple-600 text-white">
+<div className="w-full mt-[10px] bg-gradient-to-r mt-[80px] from-blue-600 via-indigo-600 to-purple-600 text-white">
 
   <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
 

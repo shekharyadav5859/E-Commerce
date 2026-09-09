@@ -185,9 +185,19 @@ export function SingalProductOpen ()  {
                   🛒 Add to Cart
                 </button>
 
-                <button className="bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold transition">
+                  <Link
+                  to={`/BuyNow/Order/${product.title}/${product.id}`}
+                  state={{product}}
+                  >
+                   <button className=" w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold transition">
                   Buy Now
                 </button>
+                  
+                  </Link> 
+{/* 
+                <button className="bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold transition">
+                  Buy Now
+                </button> */}
 
               </div>
 

@@ -102,16 +102,21 @@ api();
           </button>
 
           {/* Profile */}
-          <button className="text-gray-700 hover:text-blue-600 text-xl">
+          <Link
+          to={'/Profile/Check/User'}
+          >
+         <button className="text-gray-700 hover:text-blue-600 text-xl">
             👤
-          </button>
+          </button>  
+          </Link>
+         
 
         </div>
 
       </div>
 
       {/* Mobile Search */}
-<div className="md:hidden mt-4 px-4">
+<div className="md:hidden   mt-4 mb-0 px-4 ">
   <div className="flex items-center border rounded-lg px-3 py-2 bg-white">
    
 

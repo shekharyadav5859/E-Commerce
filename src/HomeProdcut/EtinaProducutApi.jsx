@@ -10,7 +10,7 @@ export function EtinaProducutApi() {
 
   const api = async () => {
     try {
-      const res = await axios.get("https://api.escuelajs.co/api/v1/products?offset=0&limit=24")
+      const res = await axios.get("https://api.escuelajs.co/api/v1/products?offset=0&limit=50")
         // "https://api.escuelajs.co/api/v1/products" );
 
       setProducts(res.data);
