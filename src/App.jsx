@@ -19,6 +19,7 @@ import UserPage from './User/UserPage'
 import LoginPage from './User/LoginPage'
 import { ToastContainer } from 'react-toastify'
 import Adderss from './BuyNow/Adderss'
+import Otp from './User/Otp'
 
 
 
@@ -43,6 +44,7 @@ function App() {
   
  <Route path='/singup' element={<UserSignup/>}/> 
  <Route path='/Login/User' element={<LoginPage/>}/>
+ <Route path='/User/Login/OTP/' element ={<Otp/>}/>
   </Routes>
 
 

@@ -65,7 +65,7 @@ const handleSingUpClick = (e) => {
           {/* Login */}
           <Link
           to={'/Login/User'}
-            onClick={handleLoginClick}
+            // onClick={handleLoginClick}
           >
 
             
@@ -89,7 +89,7 @@ const handleSingUpClick = (e) => {
 
               {/* SingUp */}
          <Link
-         onClick={handleSingUpClick}
+        //  onClick={handleSingUpClick}
          to={'/singup'}
          >
          

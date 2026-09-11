@@ -35,19 +35,22 @@ function LoginPage() {
       toast.error("Invalid email or password!");
       return;
     }
-
+   
     // Current logged-in user
-    localStorage.setItem(
-      "currentUser",
-      JSON.stringify(loginUser)
-    );
+   // localStorage.setItem( "currentUser", JSON.stringify(loginUser) );
 
+
+    localStorage.setItem("otpEmail" , loginUser.email)
     toast.success("Login successful! 🎉");
+    
+
 
     setTimeout(() => {
-      navigate("/Profile/Check/User");
+      navigate('/User/Login/OTP/');
     }, 1000);
   };
+
+
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 pt-20">
@@ -106,7 +109,7 @@ function LoginPage() {
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
           >
-            Login
+            Send OTP
           </button>
 
         </form>
