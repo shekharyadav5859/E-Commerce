@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Hero() {
   return (
     <>
@@ -18,10 +20,17 @@ function Hero() {
             Shop the latest products at the best prices.
             Get exciting deals and offers every day.
           </p>
+        
 
+        <Link
+        to={'/Shop/top/button'}
+        >
           <button className="bg-white text-blue-600 px-7 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
             Shop Now
           </button>
+        
+        </Link>
+        
         </div>
 
         {/* Right Side */}

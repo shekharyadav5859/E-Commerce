@@ -306,12 +306,18 @@ export function SingalProductSearch() {
                   🛒 Add to Cart
                 </button>
 
-                <button
-                  disabled={product.stock <= 0}
-                  className="py-4 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold transition shadow-sm"
-                >
+
+                <Link
+                  to={`/BuyNow/Order/${product.title}/${product.id}`}
+                  state={{product}}
+                  >
+                   <button className=" w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold transition">
                   Buy Now
                 </button>
+                  
+                  </Link> 
+
+                
 
               </div>
 

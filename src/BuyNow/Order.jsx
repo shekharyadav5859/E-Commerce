@@ -22,18 +22,25 @@ const handleBuyNow = () => {
       return
     }
    
-    // User login nahi hai
+    // !User login 
     if (!currentUser) {
       toast.info("Please login first!");
       navigate("/Login/User");
       return;
     }
 
-    // User login hai → Address page
-    navigate(`/User/Order/${id}/${currentUser.name}`, {
-      state: { product }
-    });
+   
+    navigate(
+  `/User/Order/${id}/${encodeURIComponent(currentUser.name)}/${total}/${num}/${encodeURIComponent(product.title)}`,
+  {
+    state: { product }
+  }
+);
   };
+  console.log("product:", product);
+console.log("product.title:", product.title);
+console.log("total:", total);
+console.log("num:", num);
    const addnum =()=>{      
  if(num >=10){
   toast.warning("Your cart limit is full!");
@@ -203,3 +210,16 @@ const handleBuyNow = () => {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//template_ajfvrt7

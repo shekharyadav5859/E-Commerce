@@ -1,10 +1,24 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
 
 export default function Adderss() {
 
+
+  const {
+  id,
+  name,
+  total,
+  quantity,
+  productname
+} = useParams();
+  const locetion = useLocation;
+  
   const navigate = useNavigate(); 
+
+  let detlis = locetion.state?.product;
+
   const [form, setform] = useState({
     name: "",
     phone: "",
@@ -14,6 +28,9 @@ export default function Adderss() {
     address: ""
   });
 
+  const currentUser = JSON.parse(
+  localStorage.getItem("currentUser")
+);
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -23,7 +40,7 @@ export default function Adderss() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
      const isEmpty = Object.values(form).some(
     (value) => value.trim() === ""
@@ -33,6 +50,51 @@ export default function Adderss() {
     toast.warning("Please fill all fields!");
     return;
   }
+
+
+if(!currentUser){
+  toast.warning("User is not login");
+  return
+}
+
+const templateParams = {
+  email: currentUser.email,
+  name: name,
+  orderid: id,
+  productname: productname,
+  quantity: quantity,
+  amount: total,
+  Adderss: form.address
+};
+
+try{
+    const response = await emailjs.send(
+        "service_bgyryaa",
+        "template_ajfvrt7",
+        templateParams,
+        "4JVc8rt5UyVhNe4QP"
+      );
+
+      console.log("EMAILJS RESPONSE:", response);
+        
+
+    toast.success("Your order successfully saved! 🎉");
+    toast.success("Delivery in 3 days 📦");
+}
+catch(error){
+  console.log("error" + error);
+  toast.error("Your Order Rejected");
+
+}
+
+
+
+
+
+
+
+
+
 
   setform({
      name: "",
@@ -50,13 +112,16 @@ export default function Adderss() {
     },1000)
     
   };
+  
 
   return (
     <>
+    
       <div className="bg-white rounded-2xl shadow-sm mt-[100px] p-6">
 
         <h2 className="text-xl font-bold mb-5">
           Delivery Address
+        
         </h2>
 
         <form onSubmit={handleSubmit}>

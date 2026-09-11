@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export function ThtinProdcutapi() {
 
   const [data, update] = useState([]);
-  const [count, setcount] = useState(4);
+  const [count, setcount] = useState(8);
 
   // ================= API =================
 
@@ -20,7 +20,7 @@ export function ThtinProdcutapi() {
 
     } catch (error) {
       console.log(error);
-    }
+    } 
   };
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 
 export function OneCategoryPage()  {
       const { category, id } = useParams();
@@ -133,9 +133,21 @@ export function OneCategoryPage()  {
                   🛒 Add to Cart
                 </button>
 
-                <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition">
+
+                      <Link
+                  to={`/BuyNow/Order/${product.title}/${product.id}`}
+                  state={{product}}
+                   className="flex-1"
+                  >
+                   <button className=" w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold transition">
                   Buy Now
                 </button>
+                  
+                  </Link> 
+{/* 
+                <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition">
+                  Buy Now
+                </button> */}
 
               </div>
 

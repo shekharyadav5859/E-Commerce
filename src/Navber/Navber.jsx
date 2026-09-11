@@ -42,9 +42,15 @@ api();
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-600">
+      <Link
+      to={'/'}>
+       <div className="text-2xl font-bold text-blue-600">
          Meesho
         </div>
+      
+      </Link>
+
+     
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
@@ -65,11 +71,16 @@ api();
           
        
 
+         <Link
+         to={'/Shop/top/button'}
+         >
+         <button className="text-gray-700 hover:text-blue-600">
+           Shop
+         </button>
          
+         </Link>
 
-          <a href="#" className="text-gray-700 hover:text-blue-600">
-            Shop
-          </a>
+         
 
         </div>
 

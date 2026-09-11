@@ -194,10 +194,7 @@ export function SingalProductOpen ()  {
                 </button>
                   
                   </Link> 
-{/* 
-                <button className="bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-bold transition">
-                  Buy Now
-                </button> */}
+
 
               </div>
 

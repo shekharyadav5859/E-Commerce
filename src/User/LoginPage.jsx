@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function LoginPage() {
@@ -22,8 +22,7 @@ function LoginPage() {
   const fromhandal = (e) => {
     e.preventDefault();
 
-    const userData =
-      JSON.parse(localStorage.getItem("userData")) || [];
+    const userData = JSON.parse(localStorage.getItem("userData")) || [];
 
     const loginUser = userData.find(
       (user) =>
@@ -36,18 +35,18 @@ function LoginPage() {
       return;
     }
    
-    // Current logged-in user
-   // localStorage.setItem( "currentUser", JSON.stringify(loginUser) );
+ 
 
 
     localStorage.setItem("otpEmail" , loginUser.email)
     toast.success("Login successful! 🎉");
     
-
-
-    setTimeout(() => {
-      navigate('/User/Login/OTP/');
-    }, 1000);
+   navigate("/User/Login/OTP/",
+     { state: { type: "login", email: loginUser.email } });
+   
+    // setTimeout(() => {
+    //   navigate('/User/Login/OTP/');
+    // }, 1000);
   };
 
 
@@ -105,6 +104,13 @@ function LoginPage() {
           </div>
 
           {/* Login */}
+        {/* <Link
+        to={'/User/Login/OTP/'}
+        state={{email:from.email}}
+        >
+        
+        </Link> */}
+
           <button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"

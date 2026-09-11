@@ -20,6 +20,8 @@ import LoginPage from './User/LoginPage'
 import { ToastContainer } from 'react-toastify'
 import Adderss from './BuyNow/Adderss'
 import Otp from './User/Otp'
+import { ThtinProdcutapi } from './HomeProdcut/ThtinProdcutApi'
+import ShopButton from './HomeProdcut/ShopButton'
 
 
 
@@ -39,12 +41,13 @@ function App() {
      <Route path='/main/singal/product/page/80api/:title/:id' element={<SingalProductOpen/>}/>
      <Route path='/BuyNow/Order/:title/:id'  element={<Order/>}/>   
      <Route path='/Profile/Check/User' element={<UserPage/>}/>
-     <Route path='/User/Order/:id/:name' element={<Adderss/>}/>
+     <Route path="/User/Order/:id/:name/:total/:quantity/:productname" element={<Adderss />}/>
     </Route>
   
  <Route path='/singup' element={<UserSignup/>}/> 
  <Route path='/Login/User' element={<LoginPage/>}/>
  <Route path='/User/Login/OTP/' element ={<Otp/>}/>
+ <Route path='/Shop/top/button' element={<ShopButton/>}/>
   </Routes>
 
 

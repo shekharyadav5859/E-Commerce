@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import UserPage from "./UserPage";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 
 
@@ -24,54 +24,61 @@ export default function UserSignup() {
   }
  const handleSubmit = (e) => {
   e.preventDefault();
+if (!from.name || !from.email || !from.pass) { 
+  toast.warning("Please fill all fields!"); 
+  return;
+ }
 
-  const oldUser =
-    JSON.parse(localStorage.getItem("userData")) || [];
+  const oldUser = JSON.parse(localStorage.getItem("userData")) || [];
 
-  const userExists = oldUser.some(
-    (user) =>
-      user.email.toLowerCase() === from.email.toLowerCase()
-  );
+  const userExists = oldUser.some( (user) =>user.email.toLowerCase() === from.email.toLowerCase());
 
   if (userExists) {
     toast.error("User already exists! Please login.");
     return;
   }
 
-  const newUser = {
-    id: Date.now(),
-    name: from.name,
-    email: from.email,
-    pass: from.pass,
 
-    likeProduct: [],
-    orderArray: [],
-    myAddress: [],
-    cartDetails: []
-  };
+  // Signup data temporary save
+    localStorage.setItem( "pendingSignup", JSON.stringify({ name: from.name, email: from.email, pass: from.pass }) );
+    localStorage.setItem("otpEmail", from.email);
+    navigate("/User/Login/OTP/",
+       { state: { type: "signup", email: from.email } });
+
+  // const newUser = {
+  //   id: Date.now(),
+  //   name: from.name,
+  //   email: from.email,
+  //   pass: from.pass,
+
+  //   likeProduct: [],
+  //   orderArray: [],
+  //   myAddress: [],
+  //   cartDetails: []
+  // };
 
   // All users me save
-  oldUser.push(newUser);
+  // oldUser.push(newUser);
 
-  localStorage.setItem(
-    "userData",
-    JSON.stringify(oldUser)
-  );
+  // localStorage.setItem(
+  //   "userData",
+  //   JSON.stringify(oldUser)
+  // );
 
   // ⭐ Current logged-in user
-  localStorage.setItem( "currentUser", JSON.stringify(newUser) );
+  // localStorage.setItem( "currentUser", JSON.stringify(newUser) );
 
-  toast.success("Account created successfully! 🎉");
+  // toast.success("Account created successfully! 🎉");
 
-  setfrom({
-    name: "",
-    email: "",
-    pass: ""
-  });
+  // setfrom({
+  //   name: "",
+  //   email: "",
+  //   pass: ""
+  // });
 
-  setTimeout(() => {
-    navigate("/Profile/Check/User");
-  }, 1000);
+  // setTimeout(() => {
+  //   navigate("/Profile/Check/User");
+  // }, 1000);
 };
 
   return (
@@ -175,11 +182,23 @@ export default function UserSignup() {
           </div>
 
           {/* Button */}
+      {/* <Link
+      to={'/User/Login/OTP/'}
+      state={{email:from.email}}
+      >
+ <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold transition"
+          >
+            Email Verifecation
+          </button>
+          </Link> */}
+
           <button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold transition"
           >
-            Create Account
+            Email Verifecation
           </button>
 
         </form>

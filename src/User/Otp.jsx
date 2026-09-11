@@ -1,19 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Otp() {
 
   const [otpInput, setOtpInput] = useState("");
   const [loading, setLoading] = useState(false);
-
+   
+  const location = useLocation();
   const navigate = useNavigate();
 
-  const email = localStorage.getItem("otpEmail");
+  const sentRef = useRef(false);
+    const type = location.state?.type || "login";
+ const email = location.state?.email || localStorage.getItem("otpEmail");
+ console.log("OTP Type:", type); 
+ console.log("OTP Email:", email);
 
   // React StrictMode me double OTP send rokne ke liye
-  const sentRef = useRef(false);
+  //const sentRef = useRef(false);
 
 
   const sendOtp = async () => {
@@ -33,8 +38,7 @@ const templateParams = {
   time: "15 minutes"
 };
 
-    console.log("Sending OTP to:", email);
-    console.log("OTP:", otp);
+
 
     try {
 
@@ -47,16 +51,15 @@ const templateParams = {
 
       console.log("EMAILJS RESPONSE:", response);
 
-      // OTP tabhi save karo jab email successfully send ho
+      // OTP  successfully send 
       localStorage.setItem("otp", otp);
 
       toast.success("OTP sent successfully!");
 
     } catch (error) {
 
-      console.log("EMAILJS ERROR:", error);
-
-      toast.error("OTP send failed!");
+      console.log("error"+error);
+      toast.error("Resend send OTP");
 
     } finally {
 
@@ -66,7 +69,10 @@ const templateParams = {
   };
 
 
-  // OTP page open hote hi OTP send
+
+
+
+  // page open OTP send
   useEffect(() => {
 
     if (!sentRef.current) {
@@ -77,42 +83,95 @@ const templateParams = {
   }, []);
 
 
-  const verifyOtp = () => {
+  // const verifyOtp = () => {
 
-    const savedOtp = localStorage.getItem("otp");
+  //   const savedOtp = localStorage.getItem("otp");
 
-    if (!savedOtp) {
-      toast.error("Please request OTP first!");
+  //   if (!savedOtp) {
+  //     toast.error("Please request OTP first!");
+  //     return;
+  //   }
+
+  //   if (otpInput === savedOtp) {
+
+  //     toast.success("OTP verified successfully! 🎉");
+
+  //     // OTP verify currentUser save
+  //     const currentUser =JSON.parse(localStorage.getItem("currentUser"));
+
+  //     if (currentUser) {
+  //       localStorage.setItem(
+  //         "currentUser",
+  //         JSON.stringify(currentUser)
+  //       );
+  //     }
+
+  //     setTimeout(() => {
+  //       navigate("/");
+  //     }, 1000);
+
+  //   } else {
+
+  //     toast.error("Invalid OTP!");
+
+  //   }
+  // };
+
+const verifyOtp = () => { 
+  const savedOtp = localStorage.getItem("otp");
+   if (!savedOtp) { toast.error("Please request OTP first!");
+     return;
+     } 
+     if (otpInput !== savedOtp) { toast.error("Invalid OTP!"); 
       return;
-    }
+     }
+toast.success("OTP verified successfully! 🎉");
 
-    if (otpInput === savedOtp) {
 
-      toast.success("OTP verified successfully! 🎉");
+if (type === "signup") { 
+  const pendingSignup = JSON.parse( localStorage.getItem("pendingSignup") );
+   if (!pendingSignup) {
+     toast.error("Signup data not found!");
+      return;
+     } 
+     const oldUser = JSON.parse( localStorage.getItem("userData") ) || [];
+      const newUser = { id: Date.now(),
+         name: pendingSignup.name, 
+         email: pendingSignup.email,
+          pass: pendingSignup.pass, 
+          likeProduct: [],
+           orderArray: [],
+            myAddress: [], 
+            cartDetails: []
+           }; 
+      // User save 
+       oldUser.push(newUser); 
+       localStorage.setItem( "userData", JSON.stringify(oldUser) ); 
+       //Current logged-in user 
+       localStorage.setItem( "currentUser", JSON.stringify(newUser) );
+       localStorage.removeItem("pendingSignup"); 
+       toast.success("Account created successfully! 🎉");
 
-      // OTP verify hone ke baad hi currentUser rakho
-      const currentUser =
-        JSON.parse(localStorage.getItem("currentUser"));
+         setTimeout(() => {
+           navigate("/Profile/Check/User");
+           }, 1000);
+            return;
 
-      if (currentUser) {
-        localStorage.setItem(
-          "currentUser",
-          JSON.stringify(currentUser)
-        );
+        }
+
+        if (type === "login") {
+           const userData = JSON.parse( localStorage.getItem("userData") ) || [];
+            
+           const loginUser = userData.find( (user) => user.email.toLowerCase() === email.toLowerCase() ); 
+           if (!loginUser) { toast.error("User not found!"); return; } 
+           // OTP verify ke baad currentUser l
+            localStorage.setItem( "currentUser", JSON.stringify(loginUser) );
+             toast.success("Login successful! 🎉"); 
+             setTimeout(() => { navigate("/"); }, 1000); 
+             return; 
+            }
+              toast.error("Invalid OTP request!");
       }
-
-      setTimeout(() => {
-        navigate("/");
-      }, 1000);
-
-    } else {
-
-      toast.error("Invalid OTP!");
-
-    }
-  };
-
-
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
 
