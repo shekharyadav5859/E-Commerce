@@ -117,7 +117,7 @@ catch(error){
   return (
     <>
     
-      <div className="bg-white rounded-2xl shadow-sm mt-[100px] p-6">
+      <div className="bg-white rounded-2xl shadow-sm mt-28 md:mt-[80px] p-6">
 
         <h2 className="text-xl font-bold mb-5">
           Delivery Address

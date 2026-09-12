@@ -65,7 +65,7 @@ console.log("num:", num);
     return;
    };
   return (
-    <div className="min-h-screen bg-gray-50 pt-28 pb-10 px-4 sm:px-6">
+    <div className="min-h-screen bg-gray-50 pt-28 pb-10 px-4 sm:px-6 mt-18 md:mt-[60px]">
 
       <div className="max-w-6xl mx-auto">
 

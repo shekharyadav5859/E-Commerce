@@ -19,7 +19,7 @@ useEffect(()=>{
   return (
    <>
 
-       <div className="min-h-screen bg-gray-50 pt-24 px-4 md:px-8">
+       <div className="min-h-screen bg-gray-50 pt-24 px-4 mt-15 md:mt-[65px] md:px-8">
 
       {/* Category Header */}
       <div className="max-w-7xl mx-auto">

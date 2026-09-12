@@ -38,7 +38,7 @@ api();
 
     return(
         <>
-        <nav className="w-full bg-white shadow-md px-6 py-4  fixed  top-0 z-50  ">
+     <nav className="w-full bg-transparent md:bg-white shadow-md px-6 py-4 fixed top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
         {/* Logo */}
