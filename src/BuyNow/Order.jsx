@@ -13,14 +13,10 @@ export default function Order() {
   let navigate =useNavigate();
   const  product = location.state?.product;
 const handleBuyNow = () => {
-    const currentUser = JSON.parse(
-      localStorage.getItem("currentUser")
-    );
+
+ const currentUser = JSON.parse(localStorage.getItem("currentUser") );
     
-    if(num ==0){
-      toast.warning("Please select a quantity!");
-      return
-    }
+    
    
     // !User login 
     if (!currentUser) {
@@ -28,19 +24,19 @@ const handleBuyNow = () => {
       navigate("/Login/User");
       return;
     }
-
+ if(num ==0){
+      toast.warning("Please select a quantity!");
+      return
+    }
    
     navigate(
   `/User/Order/${id}/${encodeURIComponent(currentUser.name)}/${total}/${num}/${encodeURIComponent(product.title)}`,
   {
     state: { product }
   }
-);
+)
   };
-  console.log("product:", product);
-console.log("product.title:", product.title);
-console.log("total:", total);
-console.log("num:", num);
+
    const addnum =()=>{      
  if(num >=10){
   toast.warning("Your cart limit is full!");

@@ -7,14 +7,19 @@ import Hero from "../Navber/Hero";
 import { EtinaProducutApi } from "./EtinaProducutApi";
 import Categories from "../Caterogy/Categories";
 import Otp from "../User/Otp";
+import AddToCard from "../AddCard/AddToCard";
+import ProcessToCheck from "../AddCard/ProccessToCheck";
+
 
 export function MainHomePage() {
 
   return (
     <>
      <Hero/>
+ 
      <Categories/>
-  <EtinaProducutApi/>
+     {/* <ThtinProdcutapi/> */}
+  <EtinaProducutApi/> 
  
 
 

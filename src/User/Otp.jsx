@@ -17,8 +17,7 @@ export default function Otp() {
  console.log("OTP Type:", type); 
  console.log("OTP Email:", email);
 
-  // React StrictMode me double OTP send rokne ke liye
-  //const sentRef = useRef(false);
+ 
 
 
   const sendOtp = async () => {
@@ -31,7 +30,7 @@ export default function Otp() {
     setLoading(true);
 
    const otp = String(Math.floor(100000 + Math.random() * 900000));
-
+console.log(otp);
 const templateParams = {
   email: email,
   passcode: otp,
@@ -82,40 +81,6 @@ const templateParams = {
 
   }, []);
 
-
-  // const verifyOtp = () => {
-
-  //   const savedOtp = localStorage.getItem("otp");
-
-  //   if (!savedOtp) {
-  //     toast.error("Please request OTP first!");
-  //     return;
-  //   }
-
-  //   if (otpInput === savedOtp) {
-
-  //     toast.success("OTP verified successfully! 🎉");
-
-  //     // OTP verify currentUser save
-  //     const currentUser =JSON.parse(localStorage.getItem("currentUser"));
-
-  //     if (currentUser) {
-  //       localStorage.setItem(
-  //         "currentUser",
-  //         JSON.stringify(currentUser)
-  //       );
-  //     }
-
-  //     setTimeout(() => {
-  //       navigate("/");
-  //     }, 1000);
-
-  //   } else {
-
-  //     toast.error("Invalid OTP!");
-
-  //   }
-  // };
 
 const verifyOtp = () => { 
   const savedOtp = localStorage.getItem("otp");

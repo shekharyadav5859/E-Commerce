@@ -22,6 +22,14 @@ import Adderss from './BuyNow/Adderss'
 import Otp from './User/Otp'
 import { ThtinProdcutapi } from './HomeProdcut/ThtinProdcutApi'
 import ShopButton from './HomeProdcut/ShopButton'
+import AddToCard from './AddCard/AddToCard'
+import DeleteData from './User/LogOut'
+import ProcessToCheck from './AddCard/ProccessToCheck'
+import UserAddress from './User/UserAddress'
+
+
+
+
 
 
 
@@ -42,12 +50,18 @@ function App() {
      <Route path='/BuyNow/Order/:title/:id'  element={<Order/>}/>   
      <Route path='/Profile/Check/User' element={<UserPage/>}/>
      <Route path="/User/Order/:id/:name/:total/:quantity/:productname" element={<Adderss />}/>
+     
+     <Route path='/AddToCard/:name/:id' element={<AddToCard/>}/>
+    <Route path='/add/card' element={<AddToCard/>}/>
     </Route>
   
  <Route path='/singup' element={<UserSignup/>}/> 
  <Route path='/Login/User' element={<LoginPage/>}/>
  <Route path='/User/Login/OTP/' element ={<Otp/>}/>
  <Route path='/Shop/top/button' element={<ShopButton/>}/>
+  <Route path='/delet/user' element={<DeleteData/>}/>
+  <Route path='/Add/To/Cart/ProcessToCheck/:total' element={<ProcessToCheck/>}/>
+  <Route path='/user/add/save' element={<UserAddress/>}/>
   </Routes>
 
 

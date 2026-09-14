@@ -9,7 +9,7 @@ function Hero() {
         {/* Left Content */}
         <div className="text-white max-w-xl">
           <p className="text-lg font-medium mb-3">
-            Welcome to ShopKart
+            Welcome to  S-Kart
           </p>
 
           <h1 className="text-5xl font-bold leading-tight mb-5">

@@ -299,12 +299,15 @@ export function SingalProductSearch() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-7">
 
-                <button
-                  disabled={product.stock <= 0}
-                  className="py-4 rounded-xl border-2 border-yellow-400 bg-yellow-400 hover:bg-yellow-500 disabled:bg-gray-300 disabled:border-gray-300 disabled:cursor-not-allowed text-gray-900 font-bold transition shadow-sm"
-                >
-                  🛒 Add to Cart
-                </button>
+                   <Link
+                                              to={`/AddToCard/${product.title}/${id}`}
+                                              state={{product}}
+                                              className="flex-1"
+                                              >
+                                               <button className=" w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-4 rounded-xl font-bold transition">
+                                                 🛒 Add to Cart
+                                               </button>
+                                              </Link>
 
 
                 <Link

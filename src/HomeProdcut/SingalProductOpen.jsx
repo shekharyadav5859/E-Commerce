@@ -181,11 +181,22 @@ export function SingalProductOpen ()  {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
 
-                <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-4 rounded-xl font-bold transition">
+               <Link
+               to={`/AddToCard/${product.title}/${id}`}
+               state={{product}}
+                 className="flex-1"
+               >
+                <button className= "w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-4 rounded-xl font-bold transition">
                   🛒 Add to Cart
                 </button>
+               </Link>
+
+                {/* <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-4 rounded-xl font-bold transition">
+                  🛒 Add to Cart
+                </button> */}
 
                   <Link
+                   
                   to={`/BuyNow/Order/${product.title}/${product.id}`}
                   state={{product}}
                   >

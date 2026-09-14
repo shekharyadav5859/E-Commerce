@@ -10,7 +10,7 @@ function Footer() {
           <div>
 
             <h2 className="text-2xl font-bold text-white">
-              ShopKart
+               S-Kart
             </h2>
 
             <p className="mt-4 text-gray-400">
@@ -109,7 +109,7 @@ function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-500">
-          © 2026 ShopKart. All rights reserved.
+          © 2026  S-Kart. All rights reserved.
         </div>
 
       </div>

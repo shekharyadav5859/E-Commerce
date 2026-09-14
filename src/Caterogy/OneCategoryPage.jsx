@@ -128,10 +128,17 @@ export function OneCategoryPage()  {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mt-7">
+                  <Link
+                              to={`/AddToCard/${product.title}/${id}`}
+                              state={{product}}
+                              className="flex-1"
+                              >
+                               <button className=" w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-4 rounded-xl font-bold transition">
+                                 🛒 Add to Cart
+                               </button>
+                              </Link>
 
-                <button className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 rounded-xl transition">
-                  🛒 Add to Cart
-                </button>
+                
 
 
                       <Link
@@ -144,10 +151,7 @@ export function OneCategoryPage()  {
                 </button>
                   
                   </Link> 
-{/* 
-                <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition">
-                  Buy Now
-                </button> */}
+
 
               </div>
 

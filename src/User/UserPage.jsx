@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function UserPage() {
     
 const [user, setUser] = useState(null);
+let text = useRef(null);
 
 useEffect(() => {
   const currentUser = JSON.parse(
@@ -16,15 +17,16 @@ useEffect(() => {
 const handleLoginClick = (e) => {
   if (user) {
     e.preventDefault();
-    toast.warning("User already logged in!");
+    let currtext = text.current.innerText;
+    toast.warning(`User already ${currtext}!`);
     return;
   }
 };
  
-const handleSingUpClick = (e) => {
-  if (user) {
+const UserCheck = (e) => {
+  if (!user) {
     e.preventDefault();
-    toast.warning("User already SingUp!");
+    toast.error("User first Login / SingUp");
     return;
   }
 };
@@ -65,7 +67,7 @@ const handleSingUpClick = (e) => {
           {/* Login */}
           <Link
           to={'/Login/User'}
-            // onClick={handleLoginClick}
+          onClick={handleLoginClick}
           >
 
             
@@ -74,7 +76,7 @@ const handleSingUpClick = (e) => {
           🔐
             </div>
 
-            <h2 className="text-lg font-bold text-gray-900">
+            <h2  ref={text} className="text-lg font-bold text-gray-900">
                   Login
             </h2>
 
@@ -89,7 +91,7 @@ const handleSingUpClick = (e) => {
 
               {/* SingUp */}
          <Link
-        //  onClick={handleSingUpClick}
+        onClick={handleLoginClick}
          to={'/singup'}
          >
          
@@ -98,7 +100,7 @@ const handleSingUpClick = (e) => {
               👋 
             </div>
 
-            <h2 className="text-lg font-bold text-gray-900">
+            <h2 ref={text} className="text-lg font-bold text-gray-900">
               Create Account 
             </h2>
 
@@ -140,9 +142,14 @@ const handleSingUpClick = (e) => {
           </div>
 
           {/* Address */}
+        <Link
+        to={`/user/add/save`}
+        state={{user}}
+        onClick={UserCheck}
+        >
           <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
             <div className="text-3xl mb-4">
-              📍
+               🏠
             </div>
 
             <h2 className="text-lg font-bold text-gray-900">
@@ -153,8 +160,15 @@ const handleSingUpClick = (e) => {
               Manage your delivery addresses
             </p>
           </div>
+        </Link>
+
+
+       
 
           {/* Cart */}
+        <Link
+        to={`/AddToCard/${user?.name}/${user?.id}`}
+        >
           <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
             <div className="text-3xl mb-4">
               🛒
@@ -168,7 +182,12 @@ const handleSingUpClick = (e) => {
               View products in your cart
             </p>
           </div>
+        
+        </Link>
 
+
+
+        
        
 
           {/* Settings */}
@@ -187,6 +206,10 @@ const handleSingUpClick = (e) => {
           </div>
 
           {/* Logout */}
+       <Link
+       to={'/delet/user'}
+       >
+       
           <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
             <div className="text-3xl mb-4">
               🚪
@@ -200,6 +223,9 @@ const handleSingUpClick = (e) => {
               Sign out from your account
             </p>
           </div>
+       </Link>
+
+         
 
         </div>
 
