@@ -1,12 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 export function EtinaProducutApi() {
   const [products, setProducts] = useState([]);
   const [visibleCount, setVisibleCount] = useState(4);
+  let ref= useRef();
 
-  // ================= API =================
+  //  API
 
   const api = async () => {
     try {
@@ -24,7 +25,7 @@ export function EtinaProducutApi() {
     api();
   }, []);
 
-  // ================= INFINITE SCROLL =================
+  //  INFINITE SCROLL 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,10 +51,17 @@ export function EtinaProducutApi() {
     };
   }, [products.length]);
 
+  //Like button Wroking
+  useEffect(()=>{
+const Likehendal =()=>{
+
+}
+  },[])
+
   return (
     <div className="min-h-screen bg-gray-100">
 
-      {/* ================= PRODUCTS ================= */}
+      {/* PRODUCTS */}
 
       <main className="max-w-7xl mx-auto px-6 py-12">
     
@@ -73,7 +81,7 @@ export function EtinaProducutApi() {
        
 
 
-        {/* ================= PRODUCT GRID ================= */}
+        {/*  PRODUCT GRID  */}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 

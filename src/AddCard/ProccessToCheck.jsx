@@ -25,12 +25,10 @@ export default function ProcessToCheck() {
     pincode: "",
   });
 
-  // ================= LOAD USER =================
+  //LOAD USER 
 
   useEffect(() => {
-    const currentUser = JSON.parse(
-      localStorage.getItem("currentUser")
-    );
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
     if (!currentUser) {
       toast.info("Please login first!");
@@ -66,7 +64,7 @@ export default function ProcessToCheck() {
     }
   }, [navigate]);
 
-  // ================= INPUT CHANGE =================
+  //  INPUT CHANGE
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -77,14 +75,12 @@ export default function ProcessToCheck() {
     }));
   };
 
-  // ================= CONTINUE / PLACE ORDER =================
+  //  CONTINUE / PLACE ORDER 
 
   const handleContinue = async () => {
 
     // Get current user
-    const currentUser = JSON.parse(
-      localStorage.getItem("currentUser")
-    );
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
     if (!currentUser) {
       toast.info("Please login first!");
@@ -92,7 +88,7 @@ export default function ProcessToCheck() {
       return;
     }
 
-    // ================= CART CHECK =================
+    //  CART CHECK 
 
     if (!cart || cart.length === 0) {
       toast.warning("Your cart is empty!");
@@ -100,7 +96,7 @@ export default function ProcessToCheck() {
       return;
     }
 
-    // ================= ADDRESS VALIDATION =================
+    //  ADDRESS VALIDATION 
 
     if (
       !address.name.trim() ||
@@ -115,16 +111,14 @@ export default function ProcessToCheck() {
       return;
     }
 
-    // ================= PHONE VALIDATION =================
+    //  PHONE VALIDATION 
 
     if (!/^[0-9]{10}$/.test(address.phone)) {
-      toast.warning(
-        "Please enter a valid 10 digit phone number!"
-      );
+      toast.warning("Please enter a valid 10 digit phone number!");
       return;
     }
 
-    // ================= PINCODE VALIDATION =================
+    //  PINCODE VALIDATION 
 
     if (!/^[0-9]{6}$/.test(address.pincode)) {
       toast.warning(
@@ -133,12 +127,12 @@ export default function ProcessToCheck() {
       return;
     }
 
-    // ================= ORDER ID =================
+    //  ORDER ID 
 
     const orderId =
       "ORD" + Date.now();
 
-    // ================= PRODUCT NAME =================
+    //  PRODUCT NAME 
 
     const productName = cart
       .map((item) => {

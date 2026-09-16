@@ -50,17 +50,9 @@ export default function AddToCard() {
       ];
 
       curr.cartDetails = updatedCart;
-
-      localStorage.setItem(
-        "currentUser",
-        JSON.stringify(curr)
-      );
-
+      localStorage.setItem("currentUser",JSON.stringify(curr));
       setCart(updatedCart);
-
-      toast.success(
-        "Product added successfully to your cart!"
-      );
+      toast.success("Product added successfully to your cart!");
     } else {
       setCart(oldCart);
     }
@@ -103,7 +95,7 @@ export default function AddToCard() {
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
 
-      {/* ================= HEADER ================= */}
+      {/*  HEADER  */}
 
       <div className="bg-white border-b px-5 sm:px-10 py-6">
 
@@ -136,13 +128,13 @@ export default function AddToCard() {
       </div>
 
 
-      {/* ================= CONTENT ================= */}
+      {/*  CONTENT  */}
 
       <div className="max-w-6xl mx-auto p-4 sm:p-6">
 
         {cart.length === 0 ? (
 
-          /* ================= EMPTY CART ================= */
+          /*  EMPTY CART */
 
           <div className="bg-white rounded-2xl shadow-sm p-10 sm:p-16 text-center">
 

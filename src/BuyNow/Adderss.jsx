@@ -75,11 +75,17 @@ try{
         "4JVc8rt5UyVhNe4QP"
       );
 
-      console.log("EMAILJS RESPONSE:", response);
+      
+  let orderSave = currentUser.orderArray ||[];
+  if(detlis){
+  orderSave.push(detlis);
+  localStorage.setItem("currentUser" , JSON.stringify(currentUser));
+  }    
         
 
     toast.success("Your order successfully saved! 🎉");
     toast.success("Delivery in 3 days 📦");
+    
 }
 catch(error){
   console.log("error" + error);
@@ -104,8 +110,7 @@ catch(error){
     pin: "",
     address: ""
   })
-    toast.success("your order successfully save");
-    toast.success("Delivery on 3 Days in Your Address");
+   
 
     setTimeout(()=>{
         navigate('/');
