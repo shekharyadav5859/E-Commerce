@@ -129,7 +129,7 @@ if (type === "signup") {
             
            const loginUser = userData.find( (user) => user.email.toLowerCase() === email.toLowerCase() ); 
            if (!loginUser) { toast.error("User not found!"); return; } 
-           // OTP verify ke baad currentUser l
+           // OTP verify currentUser l
             localStorage.setItem( "currentUser", JSON.stringify(loginUser) );
              toast.success("Login successful! 🎉"); 
              setTimeout(() => { navigate("/"); }, 1000); 
