@@ -17,7 +17,7 @@ export function MainHomePage() {
   return (
     <>
      <Hero/>
- <MyOrder/>
+
      <Categories/>
      {/* <ThtinProdcutapi/> */}
   <EtinaProducutApi/> 

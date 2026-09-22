@@ -54,9 +54,7 @@ let product = location.state?.product;
 
     // ================= GET CURRENT USER =================
 
-    const currentUser = JSON.parse(
-      localStorage.getItem("currentUser")
-    );
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
     if (!currentUser) {
       toast.warning("Please login first!");
@@ -153,16 +151,8 @@ let product = location.state?.product;
 
 
       // Save only after successful order process
-      localStorage.setItem(
-        "currentUser",
-        JSON.stringify(updatedUser)
-      );
-
-
-      console.log(
-        "Order Saved:",
-        updatedUser.orderArray
-      );
+      localStorage.setItem("currentUser",JSON.stringify(updatedUser));
+      console.log("Order Saved:",updatedUser.orderArray);
 
 
       toast.success(
