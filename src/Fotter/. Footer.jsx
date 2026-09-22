@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -30,7 +32,14 @@ function Footer() {
 
             <ul className="space-y-3">
               <li className="hover:text-white cursor-pointer">
+                <Link
+                
+                to={'/'}
+                >
                 Home
+                </Link>    
+
+                
               </li>
 
               <li className="hover:text-white cursor-pointer">

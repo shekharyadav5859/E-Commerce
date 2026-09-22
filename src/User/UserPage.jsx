@@ -112,7 +112,11 @@ const UserCheck = (e) => {
 
           
            {/* My Order */}
-          <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
+
+          <Link
+          to={'/Mykart'}
+          >
+            <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
             <div className="text-3xl mb-4">
                 📦
             </div>
@@ -125,6 +129,9 @@ const UserCheck = (e) => {
              Track and manage your orders
             </p>
           </div>
+          </Link>
+
+         
 
           {/* Wishlist */}
           <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
@@ -191,7 +198,7 @@ const UserCheck = (e) => {
        
 
           {/* Settings */}
-          <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
+          {/* <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
             <div className="text-3xl mb-4">
               ⚙️
             </div>
@@ -203,7 +210,7 @@ const UserCheck = (e) => {
             <p className="text-gray-500 text-sm mt-1">
               Manage your account settings
             </p>
-          </div>
+          </div> */}
 
           {/* Logout */}
        <Link

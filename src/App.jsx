@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+
 import './App.css'
 
 import { Route, Routes } from 'react-router-dom'
@@ -26,6 +24,7 @@ import AddToCard from './AddCard/AddToCard'
 import DeleteData from './User/LogOut'
 import ProcessToCheck from './AddCard/ProccessToCheck'
 import UserAddress from './User/UserAddress'
+import MyOrder from './MyOrder/MyOrder'
 
 
 
@@ -53,6 +52,7 @@ function App() {
      
      <Route path='/AddToCard/:name/:id' element={<AddToCard/>}/>
     <Route path='/add/card' element={<AddToCard/>}/>
+    <Route path ='/Mykart' element={<MyOrder/>}/>
     </Route>
   
  <Route path='/singup' element={<UserSignup/>}/> 

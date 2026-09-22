@@ -156,13 +156,10 @@ let product = location.state?.product;
 
 
       toast.success(
-        "Your order successfully saved! 🎉"
+        "Your order successfully saved! 🎉  Delivery in 3 days 📦"
       );
 
-      toast.success(
-        "Delivery in 3 days 📦"
-      );
-
+     
 
       // Clear form
 
@@ -179,17 +176,15 @@ let product = location.state?.product;
       // Go to My Orders
 
       setTimeout(() => {
-        navigate("/MyOrder");
-      }, 1000);
+        navigate("/");
+      }, 10);
 
 
     } catch (error) {
 
       console.log("EmailJS Error:", error);
 
-      toast.error(
-        "Order could not be completed!"
-      );
+      toast.error("Order could not be completed!");
 
     }
 
