@@ -151,9 +151,16 @@ if (!from.name || !from.email || !from.pass) {
         {/* Login */}
         <p className="text-center text-sm text-gray-500 mt-6">
           Already have an account?{" "}
+          <Link
+          to={'/Login/User'}
+          >
           <span className="text-blue-600 font-semibold cursor-pointer">
             Login
           </span>
+          </Link>
+          {/* <span className="text-blue-600 font-semibold cursor-pointer">
+            Login
+          </span> */}
         </p>
 
       </div>

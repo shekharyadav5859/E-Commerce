@@ -40,13 +40,15 @@ function LoginPage() {
 
     localStorage.setItem("otpEmail" , loginUser.email)
     toast.success("Login successful! 🎉");
+
     
-   navigate("/User/Login/OTP/",
-     { state: { type: "login", email: loginUser.email } });
+    
+  //  navigate("/User/Login/OTP/",
+  //    { state: { type: "login", email: loginUser.email } });
    
-    // setTimeout(() => {
-    //   navigate('/User/Login/OTP/');
-    // }, 1000);
+    setTimeout(() => {
+      navigate('/');
+    }, 1000);
   };
 
 
@@ -115,7 +117,7 @@ function LoginPage() {
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
           >
-            Send OTP
+            Login
           </button>
 
         </form>
@@ -123,9 +125,17 @@ function LoginPage() {
         {/* Signup */}
         <p className="text-center text-sm text-gray-500 mt-5">
           New user?{" "}
-          <span className="text-blue-600 font-semibold cursor-pointer hover:underline">
+        <Link
+        to={'/singup'}
+        >
+        <span className="text-blue-600 font-semibold cursor-pointer hover:underline">
             Create Account
           </span>
+        </Link>
+
+          {/* <span className="text-blue-600 font-semibold cursor-pointer hover:underline">
+            Create Account
+          </span> */}
         </p>
 
       </div>

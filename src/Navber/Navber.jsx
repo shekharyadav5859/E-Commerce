@@ -259,9 +259,9 @@ function Navber() {
           <div className="flex items-center gap-5">
 
             {/* Wishlist */}
-            <button className="text-gray-700 hover:text-red-500 text-xl">
+            {/* <button className="text-gray-700 hover:text-red-500 text-xl">
               ❤️
-            </button>
+            </button> */}
 
             {/* Cart */}
             <Link to="/add/card">

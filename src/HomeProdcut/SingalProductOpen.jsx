@@ -61,9 +61,9 @@ export function SingalProductOpen ()  {
 
     {/* Wishlist */}
 
-    <button className="absolute right-5 top-5 z-10 w-11 h-11 rounded-full bg-white shadow-md text-2xl hover:scale-110 transition">
+    {/* <button className="absolute right-5 top-5 z-10 w-11 h-11 rounded-full bg-white shadow-md text-2xl hover:scale-110 transition">
       ♡
-    </button>
+    </button> */}
 
     <img
       src={selectedImage}

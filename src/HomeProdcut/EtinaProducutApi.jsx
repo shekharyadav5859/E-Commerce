@@ -102,9 +102,9 @@ const Likehendal =()=>{
                   className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                 />
 
-                <button className="absolute top-3 right-3 bg-white w-10 h-10 rounded-full shadow flex items-center justify-center hover:bg-red-50">
+                {/* <button className="absolute top-3 right-3 bg-white w-10 h-10 rounded-full shadow flex items-center justify-center hover:bg-red-50">
                   ♡
-                </button>
+                </button> */}
 
               </div>
 

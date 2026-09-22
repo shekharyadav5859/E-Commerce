@@ -134,7 +134,7 @@ const UserCheck = (e) => {
          
 
           {/* Wishlist */}
-          <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
+          {/* <div className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition cursor-pointer">
             <div className="text-3xl mb-4">
               ❤️
             </div>
@@ -146,7 +146,7 @@ const UserCheck = (e) => {
             <p className="text-gray-500 text-sm mt-1">
               View your saved products
             </p>
-          </div>
+          </div> */}
 
           {/* Address */}
         <Link

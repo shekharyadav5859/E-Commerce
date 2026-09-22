@@ -100,11 +100,11 @@ export function SingalProductSearch() {
 
                 {/* Wishlist */}
 
-                <button
+                {/* <button
                   className="absolute top-5 right-5 z-10 w-11 h-11 bg-white rounded-full shadow-md flex items-center justify-center text-xl hover:scale-110 transition"
                 >
                   ♡
-                </button>
+                </button> */}
 
                 <img
                   src={product.thumbnail}
