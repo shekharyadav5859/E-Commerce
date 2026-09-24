@@ -1,3 +1,4 @@
+import { Facebook, Github, Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -35,6 +36,12 @@ function Footer() {
                 <Link
                 
                 to={'/'}
+               onClick={() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }}
                 >
                 Home
                 </Link>    
@@ -43,15 +50,22 @@ function Footer() {
               </li>
 
               <li className="hover:text-white cursor-pointer">
-                Shop
+                <Link to={'/Shop/top/button'}>
+                 Shop 
+                </Link>
+               
               </li>
 
-              <li className="hover:text-white cursor-pointer">
+              {/* <li className="hover:text-white cursor-pointer">
                 Categories
-              </li>
+              </li> */}
 
               <li className="hover:text-white cursor-pointer">
+              <Link  to={'/About/Us'}>
                 About Us
+              </Link>
+
+               
               </li>
             </ul>
 
@@ -67,20 +81,36 @@ function Footer() {
 
             <ul className="space-y-3">
               <li className="hover:text-white cursor-pointer">
+            <Link
+            to={'/Contant/Us'}
+            >
+            
                 Contact Us
+            
+            </Link>
+
               </li>
 
               <li className="hover:text-white cursor-pointer">
-                Shipping
+                <Link to={'/Shipping'}>
+                 Shipping
+                </Link>
+               
               </li>
 
               <li className="hover:text-white cursor-pointer">
                 Returns
               </li>
-
-              <li className="hover:text-white cursor-pointer">
+ 
+<li className="hover:text-white cursor-pointer">
+ <Link
+ to={'/Privacy/Policy'}
+ >
+  
                 Privacy Policy
-              </li>
+              
+ </Link>
+           </li>    
             </ul>
 
           </div>
@@ -96,19 +126,55 @@ function Footer() {
             <div className="flex gap-4 text-2xl">
 
               <span className="cursor-pointer hover:text-white">
-                📘
+              
+               <a
+      href="https://www.instagram.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white"
+    >
+      <Instagram/>
+      
+    </a>
               </span>
 
               <span className="cursor-pointer hover:text-white">
-                📸
+              
+                   <a
+      href=" https://github.com/shekharyadav5859/E-Commerce"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white"
+    >
+      <Github/>
+    </a>
+
+              </span>
+             
+
+              <span className="cursor-pointer hover:text-white">
+              
+                 <a
+      href="https://www.linkedin.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white"
+    >
+     <Linkedin/>
+    </a>
               </span>
 
               <span className="cursor-pointer hover:text-white">
-                🐦
-              </span>
-
-              <span className="cursor-pointer hover:text-white">
-                ▶️
+               
+                  <a
+      href="https://www.facebook.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white"
+    >
+      <Facebook/>
+     
+    </a>
               </span>
 
             </div>

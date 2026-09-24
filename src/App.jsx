@@ -25,6 +25,10 @@ import DeleteData from './User/LogOut'
 import ProcessToCheck from './AddCard/ProccessToCheck'
 import UserAddress from './User/UserAddress'
 import MyOrder from './MyOrder/MyOrder'
+import PrivacyPolicy from './Fotter/PrivecPolicy'
+import ContantUs from './Fotter/ContantUs'
+import AboutUs from './Fotter/AboutUs'
+import Shipping from './Fotter/Shipping'
 
 
 
@@ -62,6 +66,10 @@ function App() {
   <Route path='/delet/user' element={<DeleteData/>}/>
   <Route path='/Add/To/Cart/ProcessToCheck/:total' element={<ProcessToCheck/>}/>
   <Route path='/user/add/save' element={<UserAddress/>}/>
+  <Route path ='/Privacy/Policy' element={<PrivacyPolicy/>}/>
+  <Route path = '/Contant/Us' element = {<ContantUs/>}/>
+  <Route path='/About/Us' element ={<AboutUs/>}/>
+  <Route path='/Shipping' element ={<Shipping/>}/>
   </Routes>
 
 

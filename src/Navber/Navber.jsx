@@ -74,9 +74,9 @@ function Navber() {
             : "bg-transparent"
         }`}
       >
-        {/* ================================================= */}
+
         {/* ================= MOBILE NAVBAR ================= */}
-        {/* ================================================= */}
+     
 
         <div className="md:hidden">
 
@@ -94,7 +94,9 @@ function Navber() {
             `}
           >
             {/* Logo */}
-            <Link to="/">
+            <Link to="/"
+            onClick={() => { window.scrollTo({ top: 0, behavior: "smooth", }); }}
+            >
               <div className="text-2xl font-bold text-blue-600">
                  S-Kart
               </div>
@@ -104,9 +106,9 @@ function Navber() {
             <div className="flex items-center gap-4 text-xl">
 
               {/* Wishlist */}
-              <button className="hover:scale-110 transition">
+              {/* <button className="hover:scale-110 transition">
                 ❤️
-              </button>
+              </button> */}
 
               {/* Cart */}
               <Link to="/Cart">
@@ -142,7 +144,9 @@ function Navber() {
           >
 
             {/* Scroll  Logo */}
-            <Link to="/">
+            <Link to="/"
+            onClick={() => { window.scrollTo({ top: 0, behavior: "smooth", }); }}
+            >
               <div
                 className={`
                   font-bold text-blue-600
@@ -192,7 +196,9 @@ function Navber() {
         <div className="hidden md:flex max-w-7xl mx-auto items-center justify-between">
 
           {/* ================= LOGO ================= */}
-          <Link to="/">
+          <Link to="/"
+          onClick={() => { window.scrollTo({ top: 0, behavior: "smooth", }); }}
+          >
             <div className="text-2xl font-bold text-blue-600">
              S-Kart
             </div>
@@ -204,6 +210,7 @@ function Navber() {
             {/* Home */}
             <Link
               to="/"
+               onClick={() => { window.scrollTo({ top: 0, behavior: "smooth", }); }}
               className="text-gray-700 hover:text-blue-600"
             >
               Home
